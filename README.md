@@ -56,3 +56,10 @@ Subjectはobservableな値の元
 
 アーキテクチャ  
 https://angular.jp/guide/architecture
+
+GitHub Pagesへのデプロイ  
+https://www.syncfusion.com/blogs/post/easy-steps-to-host-an-angular-app-in-github-pages.aspx
+> ng add angular-cli-ghpages  
+> ng deploy --base-href=/angular-tour-of-heroes/
+
+これで「gh-pages」ブランチが生成され、そのブランチを公開する。
