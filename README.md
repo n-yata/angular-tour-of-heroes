@@ -1,27 +1,58 @@
 # AngularTourOfHeroes
+Angularチュートリアルのメモ
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
+https://angular.jp/tutorial
 
-## Development server
+### アプリ生成コマンド
+> $ ng new プロジェクト名
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### アプリ実行
+> $ ng serve --open
 
-## Code scaffolding
+### コンポーネントの作成
+> $ ng generate component コンポーネント名
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### サービスの作成
+> $ ng generate service サービス名
 
-## Build
+### モジュールの作成
+> $ ng generate module app-routing --flat --module=app
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### インメモリWeb APIのインストール
+> $ npm install angular-in-memory-web-api --save
 
-## Running unit tests
+selector: コンポーネントのCSS要素セレクター  
+templateUrl: テンプレートファイルの場所  
+styleUrls: プライベートCSSスタイルの場所
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+◆要素(selector)をルートhtmlに記載することで表示
+<app-heroes></app-heroes>
 
-## Running end-to-end tests
+ディレクティブの「*」忘れに注意  
+*ngIf  
+*ngFor
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+TypeScriptの宣言で初期化不要の場合、「?」を付与して回避  
+例：selectedHero?: Hero;
 
-## Further help
+コンポーネントはデータの受け渡しに集中、
+その他の処理はサービスへ委譲
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+コンストラクターではプロパティ定義などの簡単な初期化のみ
+関数呼び出しは行うべきでない  
+→noOnInit()で呼び出すべき
+
+Angularはコンポーネント内のパブリックなプロパティのみをバインド
+
+Routeの設定  
+path: ブラウザのアドレスバーにあるURLにマッチする文字列  
+component: 遷移した際に作成すべきコンポーネント  
+router-outlet: ルーティングされたビューをどこに表示するかをルーターに伝える  
+
+Observableをテンプレートで使用する場合
+<li *ngFor="let hero of heroes$ | async" >
+
+Subjectはobservableな値の元
+
+アーキテクチャ  
+https://angular.jp/guide/architecture
