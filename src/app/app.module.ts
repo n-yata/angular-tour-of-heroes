@@ -1,11 +1,10 @@
 import { ErrorHandler, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
@@ -18,6 +17,7 @@ import { GlobalErrorHandler } from 'src/common/errors/handler/global-error-handl
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { TmpComponent } from './tmp/tmp.component';
+import { FavoriteColorComponent } from './favorite-color/favorite-color.component';
 
 @NgModule({
   declarations: [
@@ -27,19 +27,23 @@ import { TmpComponent } from './tmp/tmp.component';
     MessagesComponent,
     DashboadComponent,
     HeroSearchComponent,
-    TmpComponent
+    TmpComponent,
+    FavoriteColorComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {dataEncapsulation: false}),
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+      dataEncapsulation: false,
+    }),
     MatButtonModule,
     MatDialogModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
