@@ -17,7 +17,10 @@ import { GlobalErrorHandler } from 'src/common/errors/handler/global-error-handl
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InMemoryDataService } from './service/in-memory-data.service';
 import { TmpComponent } from './tmp/tmp.component';
-import { FavoriteColorComponent } from './favorite-color/favorite-color.component';
+import { HeroFormReactiveComponent } from './hero-form-reactive/hero-form-reactive.component';
+import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
+import { UniqueAlterEgoValidatorDirective } from './shared/alter-ego.directive';
+import { IdentityRevealedValidatorDirective } from './shared/identity-revealed.directive';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { FavoriteColorComponent } from './favorite-color/favorite-color.componen
     DashboadComponent,
     HeroSearchComponent,
     TmpComponent,
-    FavoriteColorComponent,
+    HeroFormReactiveComponent,
+    ForbiddenValidatorDirective,
+    UniqueAlterEgoValidatorDirective,
+    IdentityRevealedValidatorDirective,
   ],
   imports: [
     BrowserModule,
