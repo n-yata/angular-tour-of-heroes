@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { forbiddenNameValidator } from '../shared/forbidden-name.directive';
-import { identityRevealedValidator } from '../shared/identity-revealed.directive';
-import { UniqueAlterEgoValidator } from '../shared/alter-ego.directive';
+import { forbiddenNameValidator } from '../../shared/forbidden-name.directive';
+import { identityRevealedValidator } from '../../shared/identity-revealed.directive';
+import { UniqueAlterEgoValidator } from '../../shared/alter-ego.directive';
 
 @Component({
   selector: 'app-hero-form-reactive',

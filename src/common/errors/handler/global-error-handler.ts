@@ -1,8 +1,8 @@
 import { ErrorHandler, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { RetryModalComponent } from 'src/app/views/retry-modal/retry-modal.component';
-import { ErrorCodeRoutes } from 'src/common/const/error-code-routes';
+import { RetryModalComponent } from 'src/app/components/shared/retry-modal/retry-modal.component';
+import { ErrorCodeRoutes } from 'src/common/constant/error-code-routes';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {

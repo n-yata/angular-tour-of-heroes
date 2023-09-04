@@ -1,4 +1,4 @@
-import { ErrorCodeRoutes } from '../const/error-code-routes';
+import { ErrorCodeRoutes } from '../constant/error-code-routes';
 
 export class RetryError extends Error {
   route: string = ErrorCodeRoutes.retry;

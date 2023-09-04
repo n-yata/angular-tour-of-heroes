@@ -1,4 +1,4 @@
-import { ErrorCodeRoutes } from '../const/error-code-routes';
+import { ErrorCodeRoutes } from '../constant/error-code-routes';
 
 export class Code404Error extends Error {
   route: string = ErrorCodeRoutes.code404;

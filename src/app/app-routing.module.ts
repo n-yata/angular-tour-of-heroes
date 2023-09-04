@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboadComponent } from './dashboad/dashboad.component';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { TmpComponent } from './tmp/tmp.component';
-import { Code404Component } from './views/code404/code404.component';
-import { Code500Component } from './views/code500/code500.component';
-import { SystemErrorComponent } from './views/system-error/system-error.component';
-import { HeroFormReactiveComponent } from './hero-form-reactive/hero-form-reactive.component';
+import { DashboadComponent } from './components/dashboad/dashboad.component';
+import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroDetailComponent } from './components/hero-detail/hero-detail.component';
+import { TmpComponent } from './components/tmp/tmp.component';
+import { Code404Component } from './components/shared/code404/code404.component';
+import { Code500Component } from './components/shared/code500/code500.component';
+import { SystemErrorComponent } from './components/shared/system-error/system-error.component';
+import { HeroFormReactiveComponent } from './components/hero-form-reactive/hero-form-reactive.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },

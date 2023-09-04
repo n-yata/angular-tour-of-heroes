@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CommonMessages } from '../../const/common-messages';
+import { CommonMessages } from '../../constant/common-messages';
 
 @Injectable({
   providedIn: 'root',
