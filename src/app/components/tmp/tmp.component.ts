@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Code404Error } from 'src/common/errors/code404.error';
 import { Code500Error } from 'src/common/errors/code500.error';
 import { RetryError } from 'src/common/errors/retry.error';
-import { HttpClientService } from '../../service/http-client/http-client.service';
-import { HatenaService } from '../../service/hatena/hatena.service';
+import { HttpClientService } from '../../services/http-client/http-client.service';
+import { HatenaService } from '../../services/hatena/hatena.service';
 
 @Component({
   selector: 'app-tmp',
