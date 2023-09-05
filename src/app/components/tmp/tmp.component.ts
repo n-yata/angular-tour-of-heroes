@@ -22,30 +22,42 @@ export class TmpComponent {
   ) {}
 
   callGet() {
-    let url = '';
-    this.httpClient.get(url).subscribe((entries) => {
-      console.log(entries);
+    const map = new Map<string, string>([['url', this.targetUrl]]);
+    this.httpClient.get(this.targetUrl, map).subscribe({
+      next: (entries) => {
+        console.log(entries);
+      },
+      error: (e) => {
+        throw new Error();
+      },
     });
   }
 
   callHatena() {
-    this.hatenaService.requestGet(this.targetUrl).subscribe((entries) => {
-      console.log(entries);
-      if (entries == null) {
-        this.comments = [];
-        this.count = 0;
-        return;
-      }
-      let result: string[] = [];
-      let resultCnt: number = 0;
-      entries.bookmarks.forEach(function (value: any) {
-        if (value.comment !== '') {
-          result.push(value.comment);
-          resultCnt++;
+    const map = new Map<string, string>([['url', this.targetUrl]]);
+
+    this.hatenaService.requestGet(map).subscribe({
+      next: (entries) => {
+        console.log(entries);
+        if (entries == null) {
+          this.comments = [];
+          this.count = 0;
+          return;
         }
-      });
-      this.comments = result;
-      this.count = resultCnt;
+        let result: string[] = [];
+        let resultCnt: number = 0;
+        entries.bookmarks.forEach(function (value: any) {
+          if (value.comment !== '') {
+            result.push(value.comment);
+            resultCnt++;
+          }
+        });
+        this.comments = result;
+        this.count = resultCnt;
+      },
+      error: (e) => {
+        throw new Error();
+      },
     });
   }
 
