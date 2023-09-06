@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { forbiddenNameValidator } from '../../shared/forbidden-name.directive';
-import { identityRevealedValidator } from '../../shared/identity-revealed.directive';
-import { UniqueAlterEgoValidator } from '../../shared/alter-ego.directive';
+import { forbiddenNameValidator } from '../../../shared/forbidden-name.directive';
+import { identityRevealedValidator } from '../../../shared/identity-revealed.directive';
+import { UniqueAlterEgoValidator } from '../../../shared/alter-ego.directive';
 
 @Component({
   selector: 'app-hero-form-reactive',
@@ -14,7 +14,7 @@ export class HeroFormReactiveComponent implements OnInit {
 
   hero = { name: 'Dr.', alterEgo: 'Dr. What', power: this.powers[0] };
 
-  heroForm!: FormGroup;
+  heroForm: FormGroup = new FormGroup({});
   heroMessage: {
     [key: string]: {
       [key: string]: string;
