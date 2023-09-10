@@ -10,24 +10,28 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.green-snackbar {
-    background: rgb(65, 252, 134);
-    color: white;
-}
+.mat-mdc-snack-bar-container {
+    &.blue-snackbar {
+        --mdc-snackbar-container-color: rgb(7, 149, 243);
+        --mat-mdc-snack-bar-button-color: white;
+        --mdc-snackbar-supporting-text-color: white;
+    }
 
-.green-snackbar button {
-    background-color: rgb(65, 252, 134);
-    color: white;
-    border: none;
-}
+    &.green-snackbar {
+        --mdc-snackbar-container-color: green;
+        --mat-mdc-snack-bar-button-color: white;
+        --mdc-snackbar-supporting-text-color: white;
+    }
 
-.red-snackbar {
-    background: #F44336;
-    color: white;
-}
+    &.red-snackbar {
+        --mdc-snackbar-container-color: red;
+        --mat-mdc-snack-bar-button-color: white;
+        --mdc-snackbar-supporting-text-color: white;
+    }
 
-.red-snackbar button {
-    background-color: #F44336;
-    color: white !important;
-    border: none;
+    &.yellow-snackbar {
+        --mdc-snackbar-container-color: yellow;
+        --mat-mdc-snack-bar-button-color: black;
+        --mdc-snackbar-supporting-text-color: black;
+    }
 }

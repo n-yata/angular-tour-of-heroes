@@ -12,9 +12,6 @@ import { SnackBarModel } from 'src/common/services/snack-bar/snack-bar.model';
 export class SnackBarService {
   constructor(private snackBar: MatSnackBar) {}
 
-  horizontalPosition?: MatSnackBarHorizontalPosition;
-  verticalPosition?: MatSnackBarVerticalPosition;
-
   /**
    * スナックバーを表示する
    * @param param スナックバーモデル

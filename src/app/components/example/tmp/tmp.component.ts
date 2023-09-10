@@ -38,6 +38,7 @@ export class TmpComponent {
     let param = new SnackBarModel();
     param.message = 'hello snack bar';
     param.action = 'OK';
+    param.panelClass = ['green-snackbar'];
     this.snackBar.openSnackBar(param);
   }
 
@@ -54,6 +55,10 @@ export class TmpComponent {
   }
 
   throwRetryError() {
-    throw new RetryError();
+    let param = new SnackBarModel();
+    param.message =
+      'エラーが発生しました。しばらく経ってからやり直してください。';
+    param.action = 'OK';
+    throw new RetryError(param);
   }
 }
