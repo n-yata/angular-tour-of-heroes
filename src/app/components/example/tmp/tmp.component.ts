@@ -3,6 +3,8 @@ import { Code404Error } from 'src/common/errors/code404.error';
 import { Code500Error } from 'src/common/errors/code500.error';
 import { RetryError } from 'src/common/errors/retry.error';
 import { HttpClientService } from '../../../../common/services/http-client/http-client.service';
+import { SnackBarService } from 'src/common/services/snack-bar/snack-bar.service';
+import { SnackBarModel } from 'src/common/services/snack-bar/snack-bar.model';
 
 @Component({
   selector: 'app-tmp',
@@ -15,7 +17,10 @@ export class TmpComponent {
   count: number = 0;
   comments: string[] = [];
 
-  constructor(private httpClient: HttpClientService) {}
+  constructor(
+    private httpClient: HttpClientService,
+    private snackBar: SnackBarService,
+  ) {}
 
   callGet() {
     const map = new Map<string, string>([['url', this.targetUrl]]);
@@ -27,6 +32,13 @@ export class TmpComponent {
         throw e;
       },
     });
+  }
+
+  openSnackBar() {
+    let param = new SnackBarModel();
+    param.message = 'hello snack bar';
+    param.action = 'OK';
+    this.snackBar.openSnackBar(param);
   }
 
   throwError() {

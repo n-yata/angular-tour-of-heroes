@@ -8,6 +8,7 @@ export class HeroFormReactiveForm {
       Validators.minLength(4),
       forbiddenNameValidator(/bob/i),
     ]),
+    alterEgo: new FormControl(''),
     power: new FormControl('', Validators.required),
   });
 
@@ -21,6 +22,7 @@ export class HeroFormReactiveForm {
       minlength: 'Name must be at least 4 characters long.',
       forbiddenName: 'Name cannot be Bob.',
     },
+    alterEgo: {},
     power: {
       required: 'Power is required.',
     },

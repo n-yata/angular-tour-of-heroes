@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppComponent } from './app.component';
 import { MessagesComponent } from './components/shared/messages/messages.component';
@@ -38,6 +39,7 @@ import { HeroSearchComponent } from './components/shared/hero-search/hero-search
     }),
     MatButtonModule,
     MatDialogModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
   ],
