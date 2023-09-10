@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { forbiddenNameValidator } from '../../../shared/forbidden-name.directive';
-import { identityRevealedValidator } from '../../../shared/identity-revealed.directive';
-import { UniqueAlterEgoValidator } from '../../../shared/alter-ego.directive';
+import { HeroFormReactiveForm } from './hero-form-reactive.form';
 
 @Component({
   selector: 'app-hero-form-reactive',
@@ -14,52 +11,14 @@ export class HeroFormReactiveComponent implements OnInit {
 
   hero = { name: 'Dr.', alterEgo: 'Dr. What', power: this.powers[0] };
 
-  heroForm: FormGroup = new FormGroup({});
-  heroMessage: {
-    [key: string]: {
-      [key: string]: string;
-    };
-  } = {};
+  heroForm = HeroFormReactiveForm.validateForm;
+  heroMessage = HeroFormReactiveForm.validateMessage;
   errorMessages: Map<string, string> = new Map();
   errorIds: string[] = [];
 
-  constructor(private alterEgoValidator: UniqueAlterEgoValidator) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.heroForm = new FormGroup(
-      {
-        name: new FormControl(this.hero.name, [
-          Validators.required,
-          Validators.minLength(4),
-          forbiddenNameValidator(/bob/i),
-        ]),
-        alterEgo: new FormControl(this.hero.alterEgo, {
-          asyncValidators: [
-            this.alterEgoValidator.validate.bind(this.alterEgoValidator),
-          ],
-          updateOn: 'blur',
-        }),
-        power: new FormControl(this.hero.power, Validators.required),
-      },
-      { validators: identityRevealedValidator },
-    );
-    this.heroMessage = {
-      name: {
-        required: 'Name is required.',
-        minlength: 'Name must be at least 4 characters long.',
-        forbiddenName: 'Name cannot be Bob.',
-      },
-      alterEgo: {
-        uniqueAlterEgo: 'Alter ego is already taken.',
-      },
-      power: {
-        required: 'Power is required.',
-      },
-      heroForm: {
-        identityRevealed: 'Name cannot match alter ego.',
-      },
-    };
-  }
+  ngOnInit(): void {}
 
   callValid() {
     let resMap: Map<string, string> = new Map();
