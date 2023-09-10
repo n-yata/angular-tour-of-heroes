@@ -2,8 +2,7 @@ import { Component } from '@angular/core';
 import { Code404Error } from 'src/common/errors/code404.error';
 import { Code500Error } from 'src/common/errors/code500.error';
 import { RetryError } from 'src/common/errors/retry.error';
-import { HttpClientService } from '../../../services/http-client/http-client.service';
-import { HatenaService } from '../../../services/hatena/hatena.service';
+import { HttpClientService } from '../../../../common/services/http-client/http-client.service';
 
 @Component({
   selector: 'app-tmp',
@@ -16,10 +15,7 @@ export class TmpComponent {
   count: number = 0;
   comments: string[] = [];
 
-  constructor(
-    private hatenaService: HatenaService,
-    private httpClient: HttpClientService,
-  ) {}
+  constructor(private httpClient: HttpClientService) {}
 
   callGet() {
     const map = new Map<string, string>([['url', this.targetUrl]]);
@@ -28,35 +24,7 @@ export class TmpComponent {
         console.log(entries);
       },
       error: (e) => {
-        throw new Error();
-      },
-    });
-  }
-
-  callHatena() {
-    const map = new Map<string, string>([['url', this.targetUrl]]);
-
-    this.hatenaService.requestGet(map).subscribe({
-      next: (entries) => {
-        console.log(entries);
-        if (entries == null) {
-          this.comments = [];
-          this.count = 0;
-          return;
-        }
-        let result: string[] = [];
-        let resultCnt: number = 0;
-        entries.bookmarks.forEach(function (value: any) {
-          if (value.comment !== '') {
-            result.push(value.comment);
-            resultCnt++;
-          }
-        });
-        this.comments = result;
-        this.count = resultCnt;
-      },
-      error: (e) => {
-        throw new Error();
+        throw e;
       },
     });
   }

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboadComponent } from './components/dashboad/dashboad.component';
+import { DashboadComponent } from './components/shared/dashboad/dashboad.component';
 import { Code404Component } from './components/shared/code404/code404.component';
 import { Code500Component } from './components/shared/code500/code500.component';
 import { SystemErrorComponent } from './components/shared/system-error/system-error.component';

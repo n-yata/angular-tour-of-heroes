@@ -9,14 +9,14 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { AppComponent } from './app.component';
 import { MessagesComponent } from './components/shared/messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
-import { DashboadComponent } from './components/dashboad/dashboad.component';
+import { DashboadComponent } from './components/shared/dashboad/dashboad.component';
 import { GlobalErrorHandler } from 'src/common/errors/handler/global-error-handler';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InMemoryDataService } from './services/in-memory-data/in-memory-data.service';
 import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
 import { UniqueAlterEgoValidatorDirective } from './shared/alter-ego.directive';
 import { IdentityRevealedValidatorDirective } from './shared/identity-revealed.directive';
-import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+import { HeroSearchComponent } from './components/shared/hero-search/hero-search.component';
 
 @NgModule({
   declarations: [
