@@ -5,6 +5,9 @@ import { RetryError } from 'src/common/errors/retry.error';
 import { HttpClientService } from '../../../../common/services/http-client/http-client.service';
 import { SnackBarService } from 'src/common/services/snack-bar/snack-bar.service';
 import { SnackBarModel } from 'src/common/services/snack-bar/snack-bar.model';
+import { ModalService } from 'src/common/services/modal/modal.service';
+import { MatDialogConfig } from '@angular/material/dialog';
+import { ModalModel } from 'src/common/services/modal/modal.model';
 
 @Component({
   selector: 'app-tmp',
@@ -20,6 +23,7 @@ export class TmpComponent {
   constructor(
     private httpClient: HttpClientService,
     private snackBar: SnackBarService,
+    private modal: ModalService,
   ) {}
 
   callGet() {
@@ -40,6 +44,20 @@ export class TmpComponent {
     param.action = 'OK';
     param.panelClass = ['green-snackbar'];
     this.snackBar.openSnackBar(param);
+  }
+
+  openModal() {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.id = 'modal-component';
+    dialogConfig.height = '350px';
+    dialogConfig.width = '600px';
+
+    let modalModel = new ModalModel();
+    modalModel.title = 'エラーサンプル';
+    modalModel.closeButton = 'ダイアログを閉じる';
+
+    this.modal.openModal(modalModel, dialogConfig);
   }
 
   throwError() {
