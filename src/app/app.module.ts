@@ -18,6 +18,9 @@ import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
 import { UniqueAlterEgoValidatorDirective } from './shared/alter-ego.directive';
 import { IdentityRevealedValidatorDirective } from './shared/identity-revealed.directive';
 import { HeroSearchComponent } from './components/shared/hero-search/hero-search.component';
+import { provideAuth0 } from '@auth0/auth0-angular';
+import { NavVarComponent } from './components/shared/nav-var/nav-var.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -25,10 +28,22 @@ import { HeroSearchComponent } from './components/shared/hero-search/hero-search
     MessagesComponent,
     DashboadComponent,
     HeroSearchComponent,
+    NavVarComponent,
     ForbiddenValidatorDirective,
     UniqueAlterEgoValidatorDirective,
     IdentityRevealedValidatorDirective,
   ],
+  providers: [
+    { provide: ErrorHandler, useClass: GlobalErrorHandler },
+    provideAuth0({
+      domain: 'xxxxxxxxxxx.us.auth0.com',
+      clientId: 'xxxxxxxxxxxxxxxxxxxx',
+      authorizationParams: {
+        redirect_uri: window.location.origin,
+      },
+    }),
+  ],
+  bootstrap: [AppComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -42,8 +57,7 @@ import { HeroSearchComponent } from './components/shared/hero-search/hero-search
     MatSnackBarModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    NgbModule,
   ],
-  providers: [{ provide: ErrorHandler, useClass: GlobalErrorHandler }],
-  bootstrap: [AppComponent],
 })
 export class AppModule {}
